@@ -49,8 +49,10 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: 10,
       width: '35%',
       display: 'flex',
+
       [theme.breakpoints.down('sm')]: {
         width: '100%',
+        justifyContent: 'center',
       },
     },
     textField: {
@@ -58,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: '#212529',
       width: '22vw',
       [theme.breakpoints.down('sm')]: {
-        width: '80vw',
+        width: '70vw',
       },
     },
   })

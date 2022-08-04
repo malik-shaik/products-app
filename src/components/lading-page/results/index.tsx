@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Box, createStyles, makeStyles } from '@material-ui/core'
+import { Box, createStyles, makeStyles, Theme } from '@material-ui/core'
 import { ErrorType, Product as ProductType } from 'lib/use-search-products'
 import { Product } from 'components/lading-page/results/product'
 import { LoadingSpinner } from 'components/utils/loading-spinner'
@@ -30,12 +30,18 @@ export const Results: FC<ResultsProps> = ({ products, loading }) => {
   )
 }
 
-const useStyles = makeStyles(
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       width: '70%',
       display: 'flex',
       flexWrap: 'wrap',
+      [theme.breakpoints.down('sm')]: {
+        margin: 'auto',
+        width: '90%',
+        marginTop: 20,
+        justifyContent: 'space-between',
+      },
     },
   })
 )
