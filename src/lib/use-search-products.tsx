@@ -20,6 +20,10 @@ interface UseSearchProductsResult {
   searchProducts: (search: string) => void
 }
 
+/**
+ * Fetches product data by given search text
+ * @returns products, error, loading
+ */
 export const useSearchProducts = (): UseSearchProductsResult => {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState<boolean>(false)
