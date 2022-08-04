@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Box, createStyles, makeStyles } from '@material-ui/core'
 import { ErrorType, Product as ProductType } from 'lib/use-search-products'
 import { Product } from 'components/lading-page/results/product'
+import { LoadingSpinner } from 'components/utils/loading-spinner'
 
 interface ResultsProps {
   products: ProductType[]
@@ -13,11 +14,11 @@ export const Results: FC<ResultsProps> = ({ products, loading }) => {
   const classes = useStyles()
 
   if (loading) {
-    return <>Loading....</>
+    return <LoadingSpinner />
   }
 
   if (loading) {
-    return <>Error....</>
+    return <>Something went wrong please try again later</>
   }
 
   return (
@@ -35,7 +36,6 @@ const useStyles = makeStyles(
       width: '70%',
       display: 'flex',
       flexWrap: 'wrap',
-      //   backgroundColor: 'grey',
     },
   })
 )
