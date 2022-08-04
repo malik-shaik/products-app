@@ -44,7 +44,11 @@ export const useSearchProducts = (): UseSearchProductsResult => {
 
       const { data } = await axios.post(url, body, config)
 
-      //   Fetch images of products
+      if (data.results.length === 0) {
+        return setProducts([])
+      }
+
+      //   Fetch images of products and add to product object
       const arrayOfPromises = data.results.map(async (result: any) => {
         const imageApiUrl = `https://pfp-public-productdb-api.azurewebsites.net/api/picture/${result.productPictures[0].pictureId}`
         const imageData = await axios.get(imageApiUrl, {

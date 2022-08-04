@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Box, createStyles, makeStyles, Theme } from '@material-ui/core'
 import { Search } from 'components/lading-page/search'
-import { Results } from 'components/lading-page/results'
+import { Results } from 'components/lading-page/products'
 import { useSearchProducts } from 'lib/use-search-products'
 
 export const LandingPage: FC = () => {

@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { Box, createStyles, makeStyles, Theme } from '@material-ui/core'
 import { ErrorType, Product as ProductType } from 'lib/use-search-products'
-import { Product } from 'components/lading-page/results/product'
+import { Product } from 'components/lading-page/products/product'
 import { LoadingSpinner } from 'components/utils/loading-spinner'
+import { NoProductsFound } from 'components/lading-page/products/no-products'
 
 interface ResultsProps {
   products: ProductType[]
@@ -10,15 +11,19 @@ interface ResultsProps {
   error: ErrorType
 }
 
-export const Results: FC<ResultsProps> = ({ products, loading }) => {
+export const Results: FC<ResultsProps> = ({ products, loading, error }) => {
   const classes = useStyles()
 
   if (loading) {
     return <LoadingSpinner />
   }
 
-  if (loading) {
+  if (error) {
     return <>Something went wrong please try again later</>
+  }
+
+  if (products.length === 0) {
+    return <NoProductsFound />
   }
 
   return (
